@@ -1,8 +1,8 @@
 const Note = ({ note }) => {
   return (
-    <li>
+    <p>
       {note.name} {note.number}
-    </li>
+    </p>
   );
 };
 
