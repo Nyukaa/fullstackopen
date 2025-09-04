@@ -1,0 +1,14 @@
+h1,
+h2 {
+  color: green;
+}
+label {
+  font-style: italic;
+  color: grey;
+  padding-top: 3px;
+  font-size: 15px;
+}
+.person {
+  padding-top: 5px;
+  font-size: 15px;
+}
