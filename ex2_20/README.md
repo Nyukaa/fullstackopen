@@ -1,12 +1,37 @@
-# React + Vite
+# 🌍 Countries Data App – Step 3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the **Full Stack Open 2024** course (University of Helsinki).  
+The goal of this exercise was to display information about countries and add weather information for the capital of a selected country using a public weather API.
 
-Currently, two official plugins are available:
+## 📚 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app displays data for all countries, including:
 
-## Expanding the ESLint configuration
+- Name, population, and languages
+- Flag image
+- Capital city
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Additionally, users can click on a country to view detailed information including **current weather in the capital city**, fetched from a weather API such as [OpenWeatherMap](https://openweathermap.org).
+
+The weather feature includes:
+
+- Temperature
+- Wind speed and direction
+- Weather icon
+
+Environment variables are used to securely store the API key (e.g., `VITE_SOME_KEY`) to avoid exposing sensitive information in source code.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, JavaScript, HTML5, CSS3
+- **API:** REST API for countries (`restcountries.com`)
+- **Weather API:** OpenWeatherMap
+- **Environment Variables:** `.env` / Vite (`VITE_` prefix)
+
+## 🚀 Features
+
+✅ View a list of all countries  
+✅ Search/filter countries by name  
+✅ Click a country to see detailed information  
+✅ Display weather report for the capital city (temperature, wind, icon)  
+✅ Securely manage API keys via environment variables

@@ -1,12 +1,31 @@
-# React + Vite
+# 📞 Phonebook App – Step 12
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the **Full Stack Open 2024** course (University of Helsinki).  
+The goal is to build a full-stack phonebook application. Users can view, add, and delete contacts, with data stored on a server.
 
-Currently, two official plugins are available:
+## 📚 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app allows users to:
 
-## Expanding the ESLint configuration
+- View a list of persons with names and phone numbers
+- Add new contacts through a form
+- Delete existing contacts
+- Receive notifications for successful operations or errors (e.g., duplicate name, network errors)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application interacts with a backend server via REST API and updates the frontend in real-time.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, JavaScript, HTML5, CSS3
+- **Backend:** JSON-server
+- **Database:** JSON file
+- **HTTP Client:** Axios for API requests
+
+## 🚀 Features
+
+✅ Display a list of all contacts  
+✅ Add new contact with validation (no duplicates allowed)  
+✅ Delete contacts from the phonebook  
+✅ Search/filter contacts dynamically by name  
+✅ Notifications for actions (success/error)  
+✅ Frontend-backend integration with REST API

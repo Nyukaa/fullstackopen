@@ -1,12 +1,28 @@
-# React + Vite
+# 📝 Anecdotes App – Step 3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the **Full Stack Open 2024** course (University of Helsinki).  
+The goal is to build a simple voting application in React where users can browse programming anecdotes and vote for their favorites.
 
-Currently, two official plugins are available:
+## 📚 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app displays one anecdote at a time, chosen randomly.  
+Users can vote for the currently visible anecdote, and the application tracks the number of votes for each anecdote.  
+Additionally, the app highlights the anecdote with the most votes.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** (functional components, props, state)
+- **JavaScript (ES6+)**
+- **HTML5**
+- **CSS3**
+- **Vite / Create React App** (depending on setup)
+
+## 🚀 Features
+
+✅ Display a random anecdote from a predefined list  
+✅ Allow users to vote for anecdotes  
+✅ Track votes using React state  
+✅ Show total votes for the current anecdote  
+✅ Highlight the anecdote with the most votes
+
+## 📂 Project Structure
