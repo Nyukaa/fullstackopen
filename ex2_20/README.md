@@ -35,3 +35,13 @@ Environment variables are used to securely store the API key (e.g., `VITE_SOME_K
 ✅ Click a country to see detailed information  
 ✅ Display weather report for the capital city (temperature, wind, icon)  
 ✅ Securely manage API keys via environment variables
+
+## 🎯 Learning Objectives
+
+- Fetch and display data from multiple APIs
+
+- Handle asynchronous operations and errors in React
+
+- Use environment variables for sensitive data (API keys)
+
+- Implement component-based architecture for clean code

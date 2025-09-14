@@ -29,3 +29,13 @@ The application interacts with a backend server via REST API and updates the fro
 ✅ Search/filter contacts dynamically by name  
 ✅ Notifications for actions (success/error)  
 ✅ Frontend-backend integration with REST API
+
+## 🎯 Learning Objectives
+
+- Connect React frontend to a backend API
+
+- Manage state with React hooks (useState, useEffect)
+
+- Implement CRUD operations via RESTful endpoints
+
+- Handle notifications and validation errors

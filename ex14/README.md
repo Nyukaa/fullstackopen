@@ -26,3 +26,35 @@ Additionally, the app highlights the anecdote with the most votes.
 ✅ Highlight the anecdote with the most votes
 
 ## 📂 Project Structure
+
+´´´
+src/
+├── components/
+│ ├── Button.jsx # Reusable button component
+│ └── Anecdote.jsx # Component for displaying anecdote text & votes
+├── App.jsx # Main application logic
+└── main.jsx # React entry point
+
+´´´
+
+## ▶️ Running the Project
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/anecdotes-step3.git
+   cd anecdotes-step3
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+4. Open in your browser:
+   ```
+   http://localhost:5173
+   ```
