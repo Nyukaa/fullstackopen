@@ -1,10 +1,10 @@
 const express = require("express");
+const path = require("path");
 
 const app = express();
-
 app.use(express.json()); //need this to post
+app.use(express.static(path.join(__dirname, "dist")));
 
-app.use(express.static("dist")); // Отдаём статические файлы из папки dist
 //app.use(morgan("tiny")); //logging middleware
 // const morgan = require("morgan");
 // morgan.token("body", (req) => {
