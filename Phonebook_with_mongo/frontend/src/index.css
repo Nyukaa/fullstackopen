@@ -47,8 +47,8 @@ button {
   margin: 0; /* remove extra spacing from <p> */
 }
 .success {
-  color: green;
-  background: lightgrey;
+  /* color: green; */
+  /* background: lightgrey; */
   font-size: 20px;
   border-style: solid;
   border-radius: 5px;

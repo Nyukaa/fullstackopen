@@ -82,11 +82,11 @@ app.post("/api/persons", (req, res, next) => {
   const { name, number } = req.body;
 
   if (!name) {
-    console.log("❌ Ошибка: name отсутствует");
+    console.log("❌ name missing");
     return res.status(400).json({ error: "name missing" });
   }
   if (!number) {
-    console.log("❌ Ошибка: number отсутствует");
+    console.log("❌ number missing");
     return res.status(400).json({ error: "number missing" });
   }
 
@@ -96,11 +96,11 @@ app.post("/api/persons", (req, res, next) => {
   person
     .save()
     .then((savedPerson) => {
-      console.log("✅ Успешно сохранено в MongoDB:", savedPerson);
+      console.log("✅ in MongoDB:", savedPerson);
       res.json(savedPerson);
     })
     .catch((error) => {
-      console.error("⚠️ Ошибка при сохранении в MongoDB:", error.message);
+      console.error("⚠️ in MongoDB:", error.message);
       next(error);
     });
 });

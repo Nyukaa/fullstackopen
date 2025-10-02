@@ -15,7 +15,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    console.log("effect");
+    //console.log("effect");
     noteService.getAll().then((initialPersons) => {
       setPersons(initialPersons);
       console.log("promise fulfilled");
@@ -113,7 +113,7 @@ const App = () => {
       .create(pObject)
       .then((returnedPerson) => {
         setPersons(persons.concat(returnedPerson));
-        setSuccessMessage(`Added '${pObject.name}' to`);
+        setSuccessMessage(`Added '${pObject.name}' to Phonebbok`);
         setTimeout(() => {
           setSuccessMessage(null);
         }, 5000);
