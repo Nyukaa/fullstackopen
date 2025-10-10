@@ -108,4 +108,51 @@ describe("total likes", () => {
     const result = listHelper.favoriteBlog([]);
     assert.deepStrictEqual(result, null);
   });
+
+  describe("most blogs", () => {
+    test("author with most blogs", () => {
+      const result = listHelper.mostBlogs(listWithManyBlogs);
+      assert.deepStrictEqual(result, {
+        author: "Robert C. Martin",
+        blogs: 3,
+      });
+    });
+
+    test("empty list returns null", () => {
+      const result = listHelper.mostBlogs([]);
+      assert.strictEqual(result, null);
+    });
+  });
+
+  describe("most likes", () => {
+    const blogs = [
+      { title: "React patterns", author: "Michael Chan", likes: 7 },
+      {
+        title: "Go To Statement Considered Harmful",
+        author: "Edsger W. Dijkstra",
+        likes: 5,
+      },
+      {
+        title: "Canonical string reduction",
+        author: "Edsger W. Dijkstra",
+        likes: 12,
+      },
+      { title: "First class tests", author: "Robert C. Martin", likes: 10 },
+      { title: "TDD harms architecture", author: "Robert C. Martin", likes: 0 },
+      { title: "Type wars", author: "Robert C. Martin", likes: 2 },
+    ];
+
+    test("author with the most total likes", () => {
+      const result = listHelper.mostLikes(blogs);
+      assert.deepStrictEqual(result, {
+        author: "Edsger W. Dijkstra",
+        likes: 17,
+      });
+    });
+
+    test("empty list returns null", () => {
+      const result = listHelper.mostLikes([]);
+      assert.strictEqual(result, null);
+    });
+  });
 });
