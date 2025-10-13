@@ -1,4 +1,4 @@
-require("dotenv").config();
+const config = require("../utils/config");
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
