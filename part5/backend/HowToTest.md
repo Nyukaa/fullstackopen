@@ -15,6 +15,18 @@ npm test -- tests/token_api.test.js
 
 Как проверить в Postman на POST /api/blogs с токеном
 
+0 If no users
+
+```
+POST http://localhost:3001/api/users
+
+{
+  "username": "Alisa",
+  "name": "Alisa",
+  "password": "secret123"
+}
+```
+
 1 Сначала получаем токен:
 
 ```
