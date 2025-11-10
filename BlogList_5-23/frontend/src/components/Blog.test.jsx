@@ -38,7 +38,7 @@ describe("<Blog />", () => {
     });
     expect(element).toBeDefined();
 
-    // URL и лайки не должны быть видны
+    // URL and likes should not be visible
     expect(screen.queryByText("https://example.com")).toBeNull();
     expect(screen.queryByText("likes 10")).toBeNull();
   });
@@ -54,13 +54,12 @@ describe("<Blog />", () => {
   test("clicking the like button twice calls event handler twice", async () => {
     const userAction = userEvent.setup();
 
-    // Сначала нужно показать кнопку "like"
+    // show details first
     const viewButton = screen.getByText("view");
     await userAction.click(viewButton);
 
     const likeButton = screen.getByText("like");
 
-    // Два клика
     await userAction.click(likeButton);
     await userAction.click(likeButton);
 
