@@ -6,6 +6,7 @@ import blogService from "./services/blogs";
 import loginService from "./services/login";
 import Toggleable from "./components/Toggleable";
 import LoginForm from "./components/LoginForm";
+import "./App.css";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
