@@ -1,10 +1,10 @@
 const Anecdote = ({ anecdote, handleClick }) => {
   return (
-    <li onClick={handleClick}>
+    <li>
       {anecdote.content}
       <div>
         has {anecdote.votes}
-        <button onClick={() => vote(anecdote.id)}>vote</button>
+        <button onClick={handleClick}>vote</button>
       </div>
     </li>
   );
