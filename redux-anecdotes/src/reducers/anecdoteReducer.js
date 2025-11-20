@@ -1,3 +1,7 @@
+// import { combineReducers } from "redux";
+import { current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
 const anecdotesAtStart = [
   "If it hurts, do it more often",
   "Adding manpower to a late software project makes it later!",
@@ -6,7 +10,6 @@ const anecdotesAtStart = [
   "Premature optimization is the root of all evil.",
   "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
 ];
-
 const getId = () => (100000 * Math.random()).toFixed(0);
 
 const asObject = (anecdote) => {
@@ -18,53 +21,85 @@ const asObject = (anecdote) => {
 };
 
 const initialState = anecdotesAtStart.map(asObject);
-
-const reducer = (state = initialState, action) => {
-  console.log("state now: ", state);
-  console.log("action", action);
-
-  switch (action.type) {
-    case "NEW_ANECDOTE": {
-      const newState = [...state, action.payload];
-      return newState.sort((a, b) => b.votes - a.votes);
-    }
-
-    case "VOTE": {
-      const id = action.payload.id;
-      const anecdoteToChange = state.find((n) => n.id === id);
-
-      const changedAnecdote = {
+const anecdoteSlice = createSlice({
+  name: "anecdote",
+  initialState,
+  reducers: {
+    createAnecdote(state, action) {
+      const content = action.payload;
+      state.push({
+        content,
+        votes: 0,
+        id: getId(),
+      });
+    },
+    voteAnecdote(state, action) {
+      const id = action.payload;
+      const anecdoteToChange = state.find((a) => a.id === id);
+      const changeAnecdote = {
         ...anecdoteToChange,
         votes: anecdoteToChange.votes + 1,
       };
-
-      const newState = state.map((anecdote) =>
-        anecdote.id !== id ? anecdote : changedAnecdote
-      );
-      // sort by votes descending
-      return newState.sort((a, b) => b.votes - a.votes);
-    }
-
-    default:
-      return state;
-  }
-};
-
-export const createAnecdote = (content) => {
-  return {
-    type: "NEW_ANECDOTE",
-    payload: {
-      content,
-      votes: 0,
-      id: getId(),
+      //console.log(state); //not usful
+      console.log(current(state)); // useful for debugging immutable state
+      return state
+        .map((a) => (a.id !== id ? a : changeAnecdote))
+        .sort((a, b) => b.votes - a.votes);
     },
-  };
-};
+  },
+});
 
-export const voteAnecdote = (id) => {
-  return {
-    type: "VOTE",
-    payload: { id },
-  };
-};
-export default reducer;
+export const { createAnecdote, voteAnecdote } = anecdoteSlice.actions;
+export default anecdoteSlice.reducer;
+
+// const initialState = anecdotesAtStart.map(asObject);
+
+// const reducer = (state = initialState, action) => {
+//   console.log("state now: ", state);
+//   console.log("action", action);
+
+//   switch (action.type) {
+//     case "NEW_ANECDOTE": {
+//       const newState = [...state, action.payload];
+//       return newState.sort((a, b) => b.votes - a.votes);
+//     }
+
+//     case "VOTE": {
+//       const id = action.payload.id;
+//       const anecdoteToChange = state.find((n) => n.id === id);
+
+//       const changedAnecdote = {
+//         ...anecdoteToChange,
+//         votes: anecdoteToChange.votes + 1,
+//       };
+
+//       const newState = state.map((anecdote) =>
+//         anecdote.id !== id ? anecdote : changedAnecdote
+//       );
+//       // sort by votes descending
+//       return newState.sort((a, b) => b.votes - a.votes);
+//     }
+
+//     default:
+//       return state;
+//   }
+// };
+
+// export const createAnecdote = (content) => {
+//   return {
+//     type: "NEW_ANECDOTE",
+//     payload: {
+//       content,
+//       votes: 0,
+//       id: getId(),
+//     },
+//   };
+// };
+
+// export const voteAnecdote = (id) => {
+//   return {
+//     type: "VOTE",
+//     payload: { id },
+//   };
+// };
+// export default reducer;
