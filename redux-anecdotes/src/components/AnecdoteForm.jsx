@@ -1,14 +1,18 @@
 import { useDispatch } from "react-redux";
 import { createAnecdote } from "../reducers/anecdoteReducer";
 import { showNotification } from "../reducers/notificationReducer";
+import anecdoteService from "../services/anecdotes";
 const AnecdoteForm = () => {
   const dispatch = useDispatch();
 
-  const addAnecdote = (event) => {
+  const addAnecdote = async (event) => {
     event.preventDefault();
     const content = event.target.anecdote.value;
     event.target.anecdote.value = "";
-    dispatch(createAnecdote(content));
+
+    // dispatch(createAnecdote(content));
+    const newA = await anecdoteService.createNew(content); //for seerver side
+    dispatch(createAnecdote(newA));
 
     dispatch(showNotification(`You added "${content}"`, 5));
   };
