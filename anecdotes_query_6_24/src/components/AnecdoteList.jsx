@@ -6,11 +6,6 @@ const AnecdoteList = ({ anecdotes, updateAnecdoteMutation }) => {
   const handleVote = (a) => {
     const updated = { ...a, votes: a.votes + 1 };
     updateAnecdoteMutation.mutate(updated);
-    notDispatch({
-      type: "SET",
-      payload: `You voted for "${a.content}"`,
-    });
-    setTimeout(() => notDispatch({ type: "CLEAR" }), 5000);
   };
 
   return (

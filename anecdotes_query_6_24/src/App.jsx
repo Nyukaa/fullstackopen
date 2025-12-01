@@ -59,13 +59,18 @@ const App = () => {
       );
       // set the updated list back to the cache
       queryClient.setQueryData(["anecdotes"], newList);
+      notDispatch({
+        type: "SET",
+        payload: `You voted for "${updatedA.content}"`,
+      });
+      setTimeout(() => notDispatch({ type: "CLEAR" }), 5000);
       console.log(
         "%c✔ [Mutation → updateAnecdote] SUCCESS. Server responsed:",
-        "color: green; font-weight: bold;",
         updatedA
       );
     },
   });
+
   const result = useQuery({
     queryKey: ["anecdotes"],
     queryFn: getAnecdotes,
