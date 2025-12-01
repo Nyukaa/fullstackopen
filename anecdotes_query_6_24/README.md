@@ -1,16 +1,65 @@
-# React + Vite
+# Full Stack Open — Part 6
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Exercises 6.20 – 6.24: Anecdotes, React Query & Notifications
 
-Currently, two official plugins are available:
+This project implements the Anecdotes application for **Full Stack Open Part 6**, exercises **6.20–6.24**.  
+The app uses **React Query**, **Context + useReducer**, and a **JSON Server backend** with validation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React**
+- **@tanstack/react-query**
+- **useReducer + Context API**
+- **JSON Server (with custom validation middleware)**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Exercise Breakdown
+
+### 🟦 6.20 – 6.21: Fetching & Creating Anecdotes with React Query
+
+**Added:**
+
+- Fetch anecdotes using `useQuery`
+- Create new anecdotes using `useMutation`
+- Display loading and error states
+
+**Core functions:**
+
+```js
+useQuery({ queryKey: ["anecdotes"], queryFn: getAnecdotes });
+useMutation({ mutationFn: createAnecdote });
+```
+
+### 6.22: Updating Anecdotes (Voting)
+
+When a user votes on an anecdote:
+
+- `updateAnecdoteMutation` sends a **PUT** request.
+- The cache is manually updated:
+
+This avoids a full refetch and keeps the UI instant.
+
+### 6.23: Global Notification System
+
+A global notification context is created using Context + useReducer.
+
+Reducer actions:
+
+SET — show a notification
+
+CLEAR — hide notification after timeout
+
+The provider wraps the app.
+Used across the app with useContext(NotificationContext).
+
+### 6.24: Server Validation Errors
+
+The backend rejects anecdotes shorter than 5 characters.
+
+Server-side validation (JSON Server middleware).
+
+Client-side error handling: Handled in useMutation.
+Shows a notification instead of crashing.
