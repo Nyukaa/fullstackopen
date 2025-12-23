@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Users from "./components/Users";
 import Blog from "./components/Blog";
 import BlogForm from "./components/BlogForm";
 import Appnotification from "./components/AppNotification";
@@ -117,24 +119,38 @@ const App = () => {
         message={notification.message}
         type={notification.type}
       />
-
+      <nav>
+        <Link to="/">blogs</Link>
+        {" | "}
+        <Link to="/users">users</Link>
+      </nav>
       <h2>blogs</h2>
       <p>
         {user.username} logged in <button onClick={handleLogout}>logout</button>
       </p>
-      <Toggleable buttonLabel="create new blog">
-        <BlogForm createBlog={addBlog} />
-      </Toggleable>
+      <Routes>
+        <Route path="/users" element={<Users />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Toggleable buttonLabel="create new blog">
+                <BlogForm createBlog={addBlog} />
+              </Toggleable>
 
-      {sortedBlogs.map((blog) => (
-        <Blog
-          key={blog.id}
-          blog={blog}
-          user={user}
-          handleLike={handleLike}
-          handleDelete={handleDelete}
+              {sortedBlogs.map((blog) => (
+                <Blog
+                  key={blog.id}
+                  blog={blog}
+                  user={user}
+                  handleLike={handleLike}
+                  handleDelete={handleDelete}
+                />
+              ))}
+            </>
+          }
         />
-      ))}
+      </Routes>
     </div>
   );
 };
