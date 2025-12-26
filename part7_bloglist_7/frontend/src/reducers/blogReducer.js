@@ -34,10 +34,21 @@ export const initializeBlogs = () => {
 };
 
 // thunk для создания блога
-export const createBlog = (blog, token) => {
+export const createBlog = (blog, token, user) => {
   return async (dispatch) => {
     const newBlog = await blogService.create(blog, token);
-    dispatch(appendBlog(newBlog));
+    //for awoiding rendering issues
+    const blogWithUser = {
+      ...newBlog,
+      user: {
+        id: user.id,
+        username: user.username,
+        name: user.name,
+      },
+    };
+
+    dispatch(appendBlog(blogWithUser));
+    // dispatch(appendBlog(newBlog));
   };
 };
 

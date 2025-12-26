@@ -1,44 +1,21 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Blog = ({ blog, handleLike, handleDelete, user }) => {
-  const [visible, setVisible] = useState(false);
-  //console.log("Blog component user:", user);
-  //console.log("Blog component blog user:", blog.user.id);
-  const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: "solid",
-    borderWidth: 1,
-    marginBottom: 5,
-  };
+const blogStyle = {
+  paddingTop: 10,
+  paddingLeft: 2,
+  border: "solid",
+  borderWidth: 1,
+  borderRadius: 5,
+  borderColor: "lightgrey",
+  marginBottom: 5,
+};
 
-  // Toggle function
-  const toggleVisibility = () => {
-    setVisible(!visible);
-  };
-
+const Blog = ({ blog }) => {
   return (
     <div style={blogStyle}>
-      <div>
-        {blog.title} {blog.author}{" "}
-        <button onClick={toggleVisibility}>{visible ? "hide" : "view"}</button>
-      </div>
-
-      {visible && (
-        <div>
-          <div>{blog.url}</div>
-          <div>
-            likes {blog.likes}{" "}
-            <button onClick={() => handleLike(blog)}>like</button>
-          </div>
-          <div>{blog.user?.name}</div>
-          {user?.id === blog?.user.id && (
-            <div>
-              <button onClick={() => handleDelete(blog.id)}>delete</button>
-            </div>
-          )}
-        </div>
-      )}
+      <Link to={`/blogs/${blog.id}`}>
+        {blog.title} {blog.author}
+      </Link>
     </div>
   );
 };

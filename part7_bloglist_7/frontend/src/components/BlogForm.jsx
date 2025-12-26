@@ -14,7 +14,7 @@ const BlogForm = ({ createBlog }) => {
   };
 
   return (
-    <>
+    <div className="blog-form">
       <h2>create new</h2>
       <form onSubmit={addBlog}>
         <div>
@@ -50,7 +50,7 @@ const BlogForm = ({ createBlog }) => {
         </div>
         <button type="submit">create</button>
       </form>
-    </>
+    </div>
   );
 };
 export default BlogForm;
