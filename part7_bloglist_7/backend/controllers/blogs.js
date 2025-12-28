@@ -1,7 +1,7 @@
 const blogsRouter = require("express").Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
-const middleware = require("../utils/middleware"); // ✅ подключаем middleware
+const middleware = require("../utils/middleware"); //
 
 console.log("✅ blogsRouter loaded");
 
@@ -87,6 +87,25 @@ blogsRouter.put("/:id", async (request, response) => {
     }
   } catch (error) {
     response.status(400).json({ error: "malformatted id" });
+  }
+});
+//for 7_18 adding comments
+blogsRouter.post("/:id/comments", async (req, res, next) => {
+  const { comment } = req.body;
+
+  if (!comment) {
+    return res.status(400).json({ error: "Comment is required" });
+  }
+
+  try {
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) return res.status(404).end();
+
+    blog.comments = blog.comments.concat(comment);
+    const updatedBlog = await blog.save();
+    res.status(201).json(updatedBlog);
+  } catch (error) {
+    next(error);
   }
 });
 
