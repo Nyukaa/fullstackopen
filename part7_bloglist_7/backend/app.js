@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const config = require("./utils/config");
 const middleware = require("./utils/middleware");
+const path = require("path");
 
 const blogsRouter = require("./controllers/blogs");
 const usersRouter = require("./controllers/users");
@@ -28,7 +29,14 @@ app.use("/api/login", loginRouter);
 if (process.env.NODE_ENV === "test") {
   app.use("/api/testing", testingRouter);
 }
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.resolve(__dirname, "dist");
+  app.use(express.static(distPath));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
