@@ -7,15 +7,9 @@ The project demonstrates **modern React architecture**, Redux state management, 
 
 ---
 
-## 🌐 Live Demo
+## [🌐 Live Demo](https://bloglist-euwq.onrender.com/)
 
-👉 https://your-render-url-here.onrender.com  
-_(optional)_
-
-## 💻 GitHub Repositories
-
-- Frontend: https://github.com/Nyukaa/bloglist-frontend
-- Backend: https://github.com/Nyukaa/bloglist-backend
+## 💻 [GitHub](https://github.com/Nyukaa/BCNew/blob/main/React/02-soveltavat-tehtavat/part7_bloglist_7/)
 
 ---
 
