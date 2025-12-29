@@ -158,6 +158,17 @@ Global state is handled using **Redux Toolkit**:
 
 ---
 
+## 🧪 Test Users
+
+You can log in using the following demo accounts:
+
+| Username | Password  |
+| -------- | --------- |
+| Anna     | secret123 |
+| Alisa    | secret123 |
+
+## These accounts are pre-created in the database for testing purposes.
+
 ## 🤝 Contributing
 
 This project is primarily educational, but feedback and suggestions are welcome.
