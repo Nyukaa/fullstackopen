@@ -14,41 +14,35 @@ h2 {
   padding: 30px 20px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px #0000001a;
   text-align: center;
 }
 .up-section label {
   display: block;
-  margin-bottom: 0px;
-  font-weight: bold;
+  margin-bottom: 0;
+  font-weight: 700;
 }
 label,
 input,
 button {
-  color: grey;
+  color: gray;
   padding: 5px 10px;
   font-size: 15px;
-  margin: 5px 5px;
+  margin: 5px;
   width: auto;
 }
-/* .person {
-  padding-top: 5px;
-  font-size: 15px;
-} */
-
 .person-row {
   display: flex;
-  justify-content: space-between; /* pushes text left, button right */
-  align-items: center; /* vertically centers */
+  justify-content: space-between;
+  align-items: center;
   margin: 8px 0;
 }
-
 .person {
-  margin: 0; /* remove extra spacing from <p> */
+  margin: 0;
 }
 .success {
-  /* color: green; */
-  /* background: lightgrey; */
+  color: green;
+  background: #d3d3d3;
   font-size: 20px;
   border-style: solid;
   border-radius: 5px;

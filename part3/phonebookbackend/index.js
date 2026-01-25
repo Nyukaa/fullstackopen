@@ -1,22 +1,9 @@
 const express = require("express");
-
 const app = express();
 
-app.use(express.json()); //need this to post
+app.use(express.json());
 
-app.use(express.static("dist")); // Отдаём статические файлы из папки dist
-//app.use(morgan("tiny")); //logging middleware
-// const morgan = require("morgan");
-// morgan.token("body", (req) => {
-//   if (req.method === "POST") {
-//     return JSON.stringify(req.body);
-//   }
-//   return "";
-// });
-
-// app.use(
-//   morgan(":method :url :status :res[content-length] - :response-time ms :body")
-// );
+app.use(express.static("dist")); //need this to post
 
 let persons = [
   {
