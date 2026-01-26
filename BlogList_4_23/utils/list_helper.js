@@ -24,10 +24,10 @@ const _ = require("lodash");
 const mostBlogs = (blogs) => {
   if (blogs.length === 0) return null;
 
-  // Группируем блоги по автору и считаем количество
+  // grouping blogs by author and counting
   const grouped = _.countBy(blogs, "author");
 
-  // Находим автора с максимальным числом блогов
+  // top author with most blogs
   const topAuthor = _.maxBy(Object.keys(grouped), (author) => grouped[author]);
 
   return {

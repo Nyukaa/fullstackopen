@@ -2,10 +2,10 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 const requestLogger = (req, res, next) => {
-  console.log(req.method, req.path, req.body);
+  //console.log(req.method, req.path, req.body);
   next();
 };
-//for 4_20 берёт токен из заголовка Authorization и кладёт его в request.token
+//for 4_20 request.token gets the token from Authorization header
 const tokenExtractor = (req, res, next) => {
   const authorization = req.get("authorization"); // get the value of the Authorization header
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
@@ -15,10 +15,9 @@ const tokenExtractor = (req, res, next) => {
   }
   next();
 };
-//for 4_22 берёт request.token, проверяет и декодирует JWT (jwt.verify), затем находит пользователя в базе и кладёт его в request.user
+//for 4_22 get request.token, checking user request.user
 const userExtractor = async (request, response, next) => {
   const token = request.token;
-
   if (!token) {
     return response.status(401).json({ error: "token missing" });
   }

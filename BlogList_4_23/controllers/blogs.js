@@ -1,9 +1,8 @@
 const blogsRouter = require("express").Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
-const middleware = require("../utils/middleware"); // ✅ подключаем middleware
+const middleware = require("../utils/middleware");
 
-// GET: все блоги (работает без токена)
 blogsRouter.get("/", async (request, response) => {
   const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
   response.json(blogs);
@@ -12,10 +11,13 @@ blogsRouter.get("/", async (request, response) => {
 //for 4_20 with required token
 blogsRouter.post("/", middleware.userExtractor, async (request, response) => {
   const body = request.body;
-  const user = request.user; // ✅ получаем пользователя из middleware
+  const user = request.user; // get user from middleware
 
   if (!user) {
     return response.status(401).json({ error: "token missing or invalid" });
+  }
+  if (!body.title || !body.url) {
+    return response.status(400).json({ error: "title or url is missing" });
   }
 
   const blog = new Blog({

@@ -11,6 +11,7 @@ const loginRouter = require("./controllers/login");
 const app = express();
 
 mongoose.set("strictQuery", false);
+console.log("Connecting to MongoDB... on URI:", config.MONGODB_URI);
 mongoose
   .connect(config.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))

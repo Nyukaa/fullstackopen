@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import supertest from "supertest";
-import test from "node:test";
+import test, { after, beforeEach } from "node:test";
 import assert from "node:assert";
 
 import app from "../app.js";
@@ -12,8 +12,7 @@ const api = supertest(app);
 
 let token;
 
-// beforeEach заменяем на отдельный setup-тест
-test("setup: create user and get token", async (t) => {
+beforeEach(async () => {
   await Blog.deleteMany({});
   await User.deleteMany({});
 
@@ -68,6 +67,6 @@ test("Blog creation fails with 401 if token is missing", async (t) => {
   assert.ok(!titles.includes("Blog without token"));
 });
 
-test("cleanup: close mongoose connection", async (t) => {
+after("cleanup: close mongoose connection", async (t) => {
   await mongoose.connection.close();
 });
