@@ -14,7 +14,7 @@ const User = () => {
 
   return (
     <div className="blog-view">
-      <h2>{user.name}</h2>
+      <h2>{user.username}</h2>
 
       <h3>added blogs</h3>
       <ul>

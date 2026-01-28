@@ -41,12 +41,11 @@ export const createBlog = (blog, token, user) => {
     const blogWithUser = {
       ...newBlog,
       user: {
-        id: user.id,
+        id: user.id || user._id,
         username: user.username,
         name: user.name,
       },
     };
-
     dispatch(appendBlog(blogWithUser));
     // dispatch(appendBlog(newBlog));
   };
