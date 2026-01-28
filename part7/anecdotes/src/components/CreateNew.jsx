@@ -49,7 +49,7 @@ const CreateNew = (props) => {
           url for more info
           <input {...info.field} />
         </div>
-        <button type="button">create</button>
+        <button type="submit">create</button>
         <button type="button" onClick={handleReset}>
           reset
         </button>
